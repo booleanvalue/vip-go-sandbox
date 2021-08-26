@@ -10,7 +10,7 @@ git config --global user.name "Kailey Lampert"
 # self-update
 git -C ~/mine/vip-go-sandbox/ pull > /dev/null
 
-export WP_CLI_PACKAGES_DIR='~/mine/wpcli-packages'
+export WP_CLI_PACKAGES_DIR='/root/mine/wpcli-packages'
 mkdir -p $WP_CLI_PACKAGES_DIR
 
 #if [ ! -d /mine/vip-go-sandbox/tools/vip-cli/dist ]; then
