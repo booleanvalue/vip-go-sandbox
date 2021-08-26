@@ -22,5 +22,9 @@ mkdir -p $WP_CLI_PACKAGES_DIR
 
 # don't check if files exist so they'll always get updated when this script runs
 cp .prompt ~/.prompt
-echo 'source ~/.prompt' >> ~/.bashrc
 cp .vimrc ~/.vimrc
+cp .mybashrc ~/.mybashrc
+
+if [ $(cat ~/.bashrc | grep mybashrc) ]; then
+  echo 'source ~/.prompt' >> ~/.bashrc
+fi
