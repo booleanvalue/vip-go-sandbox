@@ -28,3 +28,5 @@ cp .mybashrc ~/.mybashrc
 if [ ! $(cat ~/.bashrc | grep mybashrc) ]; then
   echo 'source ~/.prompt' >> ~/.bashrc
 fi
+
+source ~/.bashrc
