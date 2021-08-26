@@ -64,7 +64,7 @@ prompt_command () {
     local DEFAULT="\[\e[0m\]"
 
     local CURDIR=$(pwdtail)
-    local TITLEBAR='\e]2;${PWD}\a' # also preserves pwd in new tab
+    local TITLEBAR='\[\e]2;${PWD}\a\]' # also preserves pwd in new tab
 
     # export PS1="${TITLEBAR}${CYAN}[ ${BCYAN}\u${GREEN}@${BCYAN}${DEFAULT}\
     export PS1="\n${TITLEBAR}${HWHITE/;/;${BGRED};}[S]${DEFAULT} ${CYAN}[${DEFAULT}${WHITE}${TIME}${CYAN}]\
