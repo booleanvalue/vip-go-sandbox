@@ -25,6 +25,6 @@ cp .prompt ~/.prompt
 cp .vimrc ~/.vimrc
 cp .mybashrc ~/.mybashrc
 
-if [ $(cat ~/.bashrc | grep mybashrc) ]; then
+if [ ! $(cat ~/.bashrc | grep mybashrc) ]; then
   echo 'source ~/.prompt' >> ~/.bashrc
 fi
