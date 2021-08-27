@@ -9,6 +9,28 @@ filetype off
 
 " TODO: Load plugins here (pathogen or vundle)
 
+" preserves editing postition, take from $VIMRUNTIME/defaults.vim
+" source $VIMRUNTIME/vimrc_example.vim
+" Only do this part when Vim was compiled with the +eval feature.
+if 1
+  " Put these in an autocmd group, so that you can revert them with:
+  " ":augroup vimStartup | au! | augroup END"
+  augroup vimStartup
+    au! 
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid, when inside an event handler
+    " (happens when dropping a file on gvim) and for a commit message (it's
+    " likely a different one than last time).
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+  augroup END 
+
+endif
+
 " Turn on syntax highlighting
 syntax on
 
@@ -89,6 +111,9 @@ vnoremap <F1> :set invfullscreen<CR>
 " Formatting
 map <leader>q gqip
 
+" Toggle line numbers
+map <C-n> :set nonumber!<CR>
+
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
@@ -104,6 +129,3 @@ let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
-
-" preserves editing postition
-source $VIMRUNTIME/vimrc_example.vim
