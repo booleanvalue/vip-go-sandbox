@@ -1,5 +1,10 @@
 # vip-go-sandbox
 
+To make this work as magically as possible, I have this in my ssh config (only relevant directives shown) in addition to the standard Host block
+
 ```
-if [[ ! -d ~/mine/ ]]; then mkdir mine && cd mine && git clone git@github.com:trepmal/vip-go-sandbox.git && cd vip-go-sandbox && bash install.sh; else cd vip-go-sandbox && bash install.sh; fi
+# only add this config when NOT using Transmit app. YMMV, adjust as needed.
+Match Host YOUR_HOST exec "[[ ! $__CFBundleIdentifier = 'com.panic.Transmit' ]]"
+  RequestTTY force
+  RemoteCommand bash <(curl -s "https://url-to-this/self-installer.sh") && bash -l
 ```
