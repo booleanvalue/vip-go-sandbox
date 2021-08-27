@@ -114,6 +114,9 @@ map <leader>q gqip
 " Toggle line numbers
 map <C-n> :set nonumber!<CR>
 
+" Clear all
+map clear :1,$d<CR>
+
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
