@@ -9,3 +9,4 @@ cd $WP_CLI_PACKAGES_DIR
 if [ ! -d "option-cache-cli" ]; then
 	git clone https://github.com/trepmal/option-cache-cli.git
 fi
+cd -
