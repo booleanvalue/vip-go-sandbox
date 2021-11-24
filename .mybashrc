@@ -5,8 +5,8 @@ export WP_CLI_PACKAGES_DIR='/root/mine/wpcli-packages'
 mkdir -p $WP_CLI_PACKAGES_DIR
 
 
-cd $WP_CLI_PACKAGES_DIR
+pushd $WP_CLI_PACKAGES_DIR
 if [ ! -d "option-cache-cli" ]; then
 	git clone https://github.com/trepmal/option-cache-cli.git
 fi
-cd -
+popd
