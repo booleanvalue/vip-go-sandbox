@@ -3,3 +3,7 @@ alias run-crons="wp site list --path=/chroot/var/www --field=url | xargs -I URL 
 
 export WP_CLI_PACKAGES_DIR='/root/mine/wpcli-packages'
 mkdir -p $WP_CLI_PACKAGES_DIR
+
+
+cd $WP_CLI_PACKAGES_DIR
+git clone git@github.com:trepmal/option-cache-cli.git

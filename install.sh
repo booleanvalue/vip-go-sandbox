@@ -19,6 +19,7 @@ git -C ~/mine/vip-go-sandbox/ pull > /dev/null
 cp .prompt ~/.prompt
 cp .vimrc ~/.vimrc
 cp .mybashrc ~/.mybashrc
+cp wp-cli.yml ~/wp-cli.yml
 
 if [ ! $(cat ~/.bashrc | grep mybashrc) ]; then
   echo 'source ~/.mybashrc' >> ~/.bashrc
