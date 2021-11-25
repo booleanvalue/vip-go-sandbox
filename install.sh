@@ -21,10 +21,10 @@ cp .vimrc ~/.vimrc
 cp .mybashrc ~/.mybashrc
 cp wp-cli.yml ~/wp-cli.yml
 
-if [ ! $(cat ~/.bashrc | grep mybashrc) ]; then
+if [[ ! $(cat ~/.bashrc | grep mybashrc) ]]; then
   echo 'source ~/.mybashrc' >> ~/.bashrc
 fi
-if [ ! $(cat ~/.bashrc | grep prompt) ]; then
+if [[ ! $(cat ~/.bashrc | grep prompt) ]]; then
   echo 'source ~/.prompt' >> ~/.bashrc
 fi
 
