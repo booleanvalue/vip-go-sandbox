@@ -6,6 +6,9 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // pretty errors
 ini_set( 'xdebug.cli_color', 1 );
 
+// logs. `tail -f /chroot/tmp/php-errors`
+ini_set( 'error_log', '/tmp/php-errors' );
+
 // fancy var_dump
 if ( ! function_exists( 'vip_dump' ) ) {
     function vip_dump( $var = null ) {
