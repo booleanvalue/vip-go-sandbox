@@ -22,4 +22,13 @@ if ( ! function_exists( 'vip_dump' ) ) {
     }
 }
 
-// 
+// show last error on error handler
+add_filter( 'wp_php_error_message', function( $m, $e ) { 
+    $m .= '<dl>';
+    foreach ( $e as $k => $v ) { 
+        $m .= "<dt>$k</dt><dd>$v</dd>";
+    }
+    $m .= '</dl>';
+    return $m; 
+}, 10, 2 );
+
