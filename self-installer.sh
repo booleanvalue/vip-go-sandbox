@@ -1,16 +1,16 @@
 #!/bin/bash
 
-pushd ~
+pushd ~ > /dev/null
 
 if [[ ! -d ~/mine/ ]]; then
-  mkdir mine && pushd mine
-  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox && bash install.sh && popd
+  mkdir mine && pushd mine > /dev/null
+  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox > /dev/null && bash install.sh && popd
 elif [[ ! -d ~/mine/vip-go-sandbox ]]; then
-  pushd mine
-  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox && bash install.sh && popd
+  pushd mine > /dev/null
+  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox > /dev/null && bash install.sh && popd
 else
-  pushd mine/vip-go-sandbox && bash install.sh
+  pushd mine/vip-go-sandbox > /dev/null && bash install.sh
 fi
-popd
+popd > /dev/null
 
-popd
+popd > /dev/null
