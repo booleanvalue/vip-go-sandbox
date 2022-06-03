@@ -21,6 +21,9 @@ cp .vimrc ~/.vimrc
 cp .mybashrc ~/.mybashrc
 cp wp-cli.yml ~/wp-cli.yml
 
+# ensure line break
+echo '' >> ~/.bashrc
+
 if [[ ! $(cat ~/.bashrc | grep mybashrc) ]]; then
   echo 'source ~/.mybashrc' >> ~/.bashrc
 fi
