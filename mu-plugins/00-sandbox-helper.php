@@ -1,7 +1,7 @@
 <?php
 
 // no more notices
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+error_reporting( E_ERROR | E_WARNING | E_PARSE | E_COMPILE_ERROR | E_USER_ERROR );
 
 // pretty errors
 ini_set( 'xdebug.cli_color', 1 );
