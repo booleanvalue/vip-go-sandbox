@@ -6,7 +6,7 @@ git config --global user.email "kailey.lampert@automattic.com"
 git config --global user.name "Kailey Lampert"
 
 # self-update
-git -C ~/mine/vip-go-sandbox/ pull > /dev/null
+git -C ~/mine/vip-go-sandbox/ pull --rebase > /dev/null
 
 #if [ ! -d /mine/vip-go-sandbox/tools/vip-cli/dist ]; then
 #	pushd /mine/vip-go-sandbox/tools/vip-cli
