@@ -38,7 +38,7 @@ syntax on
 filetype plugin indent on
 
 " TODO: Pick a leader key
-" let mapleader = ","
+let mapleader = ","
 
 " No mouse-select by default
 set mouse-=a
