@@ -4,6 +4,7 @@ yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/00-sandbox-helper.php /var/www/wp-
 
 git config --global user.email "kailey.lampert@automattic.com"
 git config --global user.name "Kailey Lampert"
+git config pull.rebase false
 
 # self-update
 git -C ~/mine/vip-go-sandbox/ pull --rebase > /dev/null
