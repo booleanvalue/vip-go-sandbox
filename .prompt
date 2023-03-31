@@ -12,10 +12,12 @@ prompt_command () {
 
     # if a site is fataling, this will return nothing. avoid using for too much
     local ENV=$(php -r "include '/var/www/config/wp-config.php'; echo VIP_GO_APP_ENVIRONMENT;" 2> /dev/null)
+    local  MS=$(php -r "include '/var/www/config/wp-config.php'; echo MULTISITE ? '(ms) ' : '(ss) ';" 2> /dev/null)
+
 
     # this is too slow to run in the prompt
     # local HOST=$(wp option get home | sed 's/^.*\/\///g')
-    local HOST=$(hostname | sed 's/-sbx-.*$//g')'-'${ENV}
+    local HOST=${MS}$(hostname | sed 's/-sbx-.*$//g')'-'${ENV}
 
 
     ##
