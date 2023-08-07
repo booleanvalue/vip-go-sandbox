@@ -9,4 +9,7 @@ pushd $WP_CLI_PACKAGES_DIR > /dev/null
 if [ ! -d "option-cache-cli" ]; then
 	git clone https://github.com/trepmal/option-cache-cli.git
 fi
+if [ ! -d "misc-wp-cli" ]; then
+	git clone https://github.com/trepmal/misc-wp-cli.git
+fi
 popd > /dev/null
