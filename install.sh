@@ -32,4 +32,8 @@ if [[ ! $(cat ~/.bashrc | grep prompt) ]]; then
   echo 'source ~/.prompt' >> ~/.bashrc
 fi
 
+if [[ ! $(cat ~/.bashrc | grep 'cd ~/') ]]; then
+  echo 'cd ~/' >> ~/.bashrc
+fi
+
 source ~/.bashrc
