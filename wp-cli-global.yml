@@ -1,4 +1,5 @@
 require:
+  - /root/mine/vip-go-sandbox/scripts/wp-cli-require-url.php
   - /root/mine/wpcli-packages/option-cache-cli/option-cache-cli.php
   - /root/mine/wpcli-packages/misc-wp-cli/misc.php
 _:
