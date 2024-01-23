@@ -1,3 +1,5 @@
 require:
   - /root/mine/wpcli-packages/option-cache-cli/option-cache-cli.php
   - /root/mine/wpcli-packages/misc-wp-cli/misc.php
+_:
+  inherit: /chroot/var/www/config/wp-cli.yml

@@ -20,7 +20,7 @@ git -C ~/mine/vip-go-sandbox/ pull --rebase > /dev/null
 cp .prompt ~/.prompt
 cp .vimrc ~/.vimrc
 cp .mybashrc ~/.mybashrc
-cp wp-cli.yml ~/wp-cli.yml
+cp wp-cli-global.yml ~/wp-cli-global.yml
 
 # ensure line break
 echo '' >> ~/.bashrc
