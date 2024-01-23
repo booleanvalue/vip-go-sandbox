@@ -1,16 +1,22 @@
 #!/bin/bash
+#
+# Simply install this repo
+#
 
 pushd ~ > /dev/null
 
+# make ~/mine (if it doesn't exist)
 if [[ ! -d ~/mine/ ]]; then
-  mkdir mine && pushd mine > /dev/null
-  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox > /dev/null && bash install.sh && popd > /dev/null
-elif [[ ! -d ~/mine/vip-go-sandbox ]]; then
-  pushd mine > /dev/null
-  git clone git@github.com:trepmal/vip-go-sandbox.git && pushd vip-go-sandbox > /dev/null && bash install.sh && popd > /dev/null
-else
-  pushd mine/vip-go-sandbox > /dev/null && bash install.sh
+  mkdir mine
 fi
-popd > /dev/null
+
+# clone vip-go-sandbox into ~/mine (if it doesn't exist)
+if [[ ! -d ~/mine/vip-go-sandbox ]]; then
+  git clone git@github.com:trepmal/vip-go-sandbox.git mine/vip-go-sandbox
+fi
+
+# go into repo, run install, leave
+pushd mine/vip-go-sandbox > /dev/null && bash install.sh && popd > /dev/null
+
 
 popd > /dev/null
