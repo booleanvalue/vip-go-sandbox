@@ -37,6 +37,12 @@ if [ -f ~/.go-sandbox.json ]; then
   git config --global pull.rebase false
 fi
 
+# app.php is dropped in root because at the time of
+# transfer we don't know if mine/wp-cli-packages exists yet
+if [ -f ~/app.php ]; then
+  mv ~/app.php ~/mine/wp-cli-packages/.
+fi
+
 # self-update
 git -C ~/mine/vip-go-sandbox/ pull --rebase > /dev/null
 
