@@ -11,10 +11,20 @@ if [ -f /var/www/wp-content/mu-plugins/http-concat/concat-utils.php.original ]; 
   yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/concat-utils.php /var/www/wp-content/mu-plugins/http-concat/concat-utils.php
 fi
 
-##
-git config --global user.email "kailey.lampert@automattic.com"
-git config --global user.name "Kailey Lampert"
-git config --global pull.rebase false
+# ~/.go-sandbox.json is created via the RemoteCommand directive
+# e.g.
+# echo '{"git_config_user.name":"","git_config_user.email":""}' > ~/.go-sandbox.json;
+if [ -f ~/.go-sandbox.json ]; then
+  git_user_email=$(jq -r '.["git_config_user.email"]' < ~/.go-sandbox.json)
+  git_user_name=$(jq -r '.["git_config_user.name"]' < ~/.go-sandbox.json)
+  if [[ !-z $git_user_email ]]; then
+    git config --global user.email $git_user_email
+  fi
+  if [[ !-z $git_user_name ]]; then
+    git config --global user.name $git_user_name
+  fi
+  git config --global pull.rebase false
+fi
 
 # self-update
 git -C ~/mine/vip-go-sandbox/ pull --rebase > /dev/null
