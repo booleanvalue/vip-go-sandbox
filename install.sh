@@ -11,17 +11,28 @@ if [ -f /var/www/wp-content/mu-plugins/http-concat/concat-utils.php.original ]; 
   yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/concat-utils.php /var/www/wp-content/mu-plugins/http-concat/concat-utils.php
 fi
 
-# ~/.go-sandbox.json is created via the RemoteCommand directive
+# ~/.go-sandbox.json is a file on your local
+#
+# {
+#   "git_config_user.name": "",
+#   "git_config_user.email": ""
+# }
+#
+# ~/.go-sandbox.json is copied from local to remote via
+# the LocalCommand directive in your ~/.ssh/config
+#
 # e.g.
-# echo '{"git_config_user.name":"","git_config_user.email":""}' > ~/.go-sandbox.json;
+#  PermitLocalCommand yes
+#  LocalCommand scp ~/.go-sandbox.json %h:~/.
+#
 if [ -f ~/.go-sandbox.json ]; then
   git_user_email=$(jq -r '.["git_config_user.email"]' < ~/.go-sandbox.json)
   git_user_name=$(jq -r '.["git_config_user.name"]' < ~/.go-sandbox.json)
   if [[ ! -z $git_user_email ]]; then
-    git config --global user.email $git_user_email
+    git config --global --replace-all user.email "$git_user_email"
   fi
   if [[ ! -z $git_user_name ]]; then
-    git config --global user.name $git_user_name
+    git config --global --replace-all user.name "$git_user_name"
   fi
   git config --global pull.rebase false
 fi
