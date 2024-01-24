@@ -17,10 +17,10 @@ fi
 if [ -f ~/.go-sandbox.json ]; then
   git_user_email=$(jq -r '.["git_config_user.email"]' < ~/.go-sandbox.json)
   git_user_name=$(jq -r '.["git_config_user.name"]' < ~/.go-sandbox.json)
-  if [[ !-z $git_user_email ]]; then
+  if [[ ! -z $git_user_email ]]; then
     git config --global user.email $git_user_email
   fi
-  if [[ !-z $git_user_name ]]; then
+  if [[ ! -z $git_user_name ]]; then
     git config --global user.name $git_user_name
   fi
   git config --global pull.rebase false
