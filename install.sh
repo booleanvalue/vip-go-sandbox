@@ -38,9 +38,9 @@ if [ -f ~/.go-sandbox.json ]; then
 fi
 
 # app.php is dropped in root because at the time of
-# transfer we don't know if mine/wp-cli-packages exists yet
+# transfer we don't know if mine/wpcli-packages exists yet
 if [ -f ~/app.php ]; then
-  mv ~/app.php ~/mine/wp-cli-packages/.
+  mv ~/app.php ~/mine/wpcli-packages/.
 fi
 
 # self-update
