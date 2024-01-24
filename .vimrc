@@ -1,5 +1,5 @@
-" https://gist.github.com/simonista/8703722
-
+" Largely taken from https://gist.github.com/simonista/8703722
+" See also https://vimdoc.sourceforge.net/htmldoc/options.html
 
 " Don't try to be vi compatible
 set nocompatible
@@ -72,7 +72,7 @@ set noshiftround
 set scrolloff=20
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
+runtime! macros/matchit.vim " https://github.com/chrisbra/matchit/blob/master/doc/matchit.txt
 
 " Move up/down editor lines
 nnoremap j gj
@@ -101,12 +101,12 @@ set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
+" These do not work, may investigate later
 " Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+" inoremap <F1> <ESC>:set invfullscreen<CR>a
+" nnoremap <F1> :set invfullscreen<CR>
+" vnoremap <F1> :set invfullscreen<CR>
 
-" Textmate holdouts
 
 " Formatting
 map <leader>q gqip
@@ -116,11 +116,11 @@ map <C-n> :set nonumber!<CR>
 
 " Clear all
 map clear :1,$d<CR>
+map <leader>x :1,$d<CR>
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
+set list
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
