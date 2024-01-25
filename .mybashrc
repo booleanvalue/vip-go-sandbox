@@ -2,6 +2,9 @@ alias logs="tail -F /tmp/php-errors -F /chroot/tmp/php-errors"
 alias run-crons="wp site list --path=/chroot/var/www --field=url | xargs -I URL wp --path=/chroot/var/www cron event run --due-now --url=URL"
 alias la='ll -A'
 
+# gets rid of crud in wp shell
+export XDEBUG_MODE=off
+
 export WP_CLI_CONFIG_PATH='/root/wp-cli-global.yml'
 export WP_CLI_PACKAGES_DIR='/root/mine/wpcli-packages'
 mkdir -p $WP_CLI_PACKAGES_DIR
