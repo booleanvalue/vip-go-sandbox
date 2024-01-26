@@ -32,6 +32,13 @@ WP_CLI::add_wp_hook( 'setup_theme', function() use( $args, $assoc_args, $runtime
         $method = 'error';
     }
 
+    // be strict for cache flush
+    if (
+        ( 'cache' === strtolower( $args[0] ) &&  'flush' === strtolower( $args[1] ) )
+    ) {
+        $method = 'error';
+    }
+
     // for strict formats, error out
     // helps when piping output to another command or file
     if ( isset( $assoc_args['format'] ) && in_array( $assoc_args['format'], [ 'json', 'ids', 'yaml', 'csv' ] ) ) {
