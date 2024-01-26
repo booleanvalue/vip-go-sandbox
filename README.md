@@ -1,5 +1,7 @@
 # vip-go-sandbox
 
+Customizations for my sandboxes.
+
 To make this work as magically as possible, I have this in my ssh config (only relevant directives shown) in addition to the standard Host block
 
 ```
