@@ -8,6 +8,7 @@ WP_CLI::add_wp_hook( 'setup_theme', function() use( $args, $assoc_args, $runtime
     if (
         ( 'help' === strtolower( $args[0] ) ) ||
         ( 'site' === strtolower( $args[0] ) &&  'list' === strtolower( $args[1] ) ) ||
+        ( 'site' === strtolower( $args[0] ) &&  'update' === strtolower( $args[1] ) ) ||
         ( 'network' === strtolower( $args[0] ) &&  'list' === strtolower( $args[1] ) ) ||
         ( 'app' === strtolower( $args[0] ) ) ||
         ( 'sandbox' === strtolower( $args[0] ) )
