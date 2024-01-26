@@ -35,3 +35,6 @@ add_filter( 'wp_php_error_message', function( $m, $e ) {
     return $m; 
 }, 10, 2 );
 
+if ( file_exists( 'sandbox-wp-debugger/sandbox-wp-debugger.php' ) ) {
+    require_once 'sandbox-wp-debugger/sandbox-wp-debugger.php';
+}
