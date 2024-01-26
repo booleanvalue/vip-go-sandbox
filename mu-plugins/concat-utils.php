@@ -4,6 +4,8 @@
  * used when debugging concat on sandboxes
  * this needs to be used in concat-util to make 
  * ingress urls validate as 'internal'
+ * 
+ * taken originally from wp-content/mu-plugins/vip-helpers/sandbox.php
  */
 
 function reverse_wpvip_filter_sandbox_plugins_url( $url ) {
@@ -26,7 +28,7 @@ function reverse_wpvip_filter_sandbox_plugins_url( $url ) {
     if ( in_array( $host, $sandbox_vhosts, true ) ) {
         $flipped = array_flip( $sandbox_vhosts );
         $key     = $flipped[ $host ];
-        $url     = str_replace( '://' . $key, '://' . $hosts, $url );
+        $url     = str_replace( '://' . $key, '://' . $host, $url );
     }
 
     return $url;
