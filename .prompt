@@ -96,6 +96,8 @@ git_status() {
             echo -n ']'
             return
         fi
+    else
+        echo -m ' [not-git]'
     fi
 }
 
