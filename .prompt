@@ -98,7 +98,7 @@ git_status() {
             return
         fi
     else
-        echo -m ' [not-git]'
+        echo -n ' [not-git]'
     fi
 }
 
