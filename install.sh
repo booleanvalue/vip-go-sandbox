@@ -11,6 +11,13 @@ if [ -f /var/www/wp-content/mu-plugins/http-concat/concat-utils.php.original ]; 
   yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/concat-utils.php /var/www/wp-content/mu-plugins/http-concat/concat-utils.php
 fi
 
+if [ ! -d ~/mine/vip-go-sandbox/mu-plugins/sandbox-wp-debugger/ ]; then
+  git clone git@github.com:Automattic/sandbox-wp-debugger.git ~/mine/vip-go-sandbox/mu-plugins/sandbox-wp-debugger
+  pushd ~/mine/vip-go-sandbox/mu-plugins/sandbox-wp-debugger > /dev/null
+  git checkout emrikol/custom-sandbox-wp-debugger
+  popd > /dev/null
+fi
+
 # ~/.go-sandbox.json is a file on your local
 #
 # {
