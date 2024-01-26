@@ -11,13 +11,14 @@ prompt_command () {
     local TIME=$(date +"%H:%M:%S"|sed 's/ //g') # format time for prompt string
 
     # if a site is fataling, this will return nothing. avoid using for too much
+    # consider changing to use the <id>-data.json file which won't fail due to random customer code
     local ENV=$(php -r "include '/var/www/config/wp-config.php'; echo VIP_GO_APP_ENVIRONMENT;" 2> /dev/null)
     local  MS=$(php -r "include '/var/www/config/wp-config.php'; echo MULTISITE ? '(ms) ' : '(ss) ';" 2> /dev/null)
 
 
     # this is too slow to run in the prompt
     # local HOST=$(wp option get home | sed 's/^.*\/\///g')
-    local HOST=${MS}$(hostname | sed 's/-sbx-.*$//g')'-'${ENV}
+    local HOST=${MS}$(hostname | sed 's/-sbx-.*$//g')
 
 
     ##
@@ -71,7 +72,7 @@ prompt_command () {
     # export PS1="${TITLEBAR}${CYAN}[ ${BCYAN}\u${GREEN}@${BCYAN}${DEFAULT}\
     export PS1="\n${TITLEBAR}${HWHITE/;/;${BGRED};}[S]${DEFAULT} ${CYAN}[${DEFAULT}${WHITE}${TIME}${CYAN}]\
 ${RED}$ERRPROMPT${WHITE}${DEFAULT}\
-${BLUE}${HOST}${DEFAULT} ${YELLOW}${CURDIR}${DEFAULT}\
+${BLUE}${HOST}${DEFAULT} ${HWHITE/;/;${BGBLUE};}${ENV}${DEFAULT} ${YELLOW}${CURDIR}${DEFAULT}\
 ${MAGENTA}${GITSTATUS}${DEFAULT}${MAGENTA}${DEFAULT} $ "
 
 }
