@@ -98,7 +98,12 @@ git_status() {
             return
         fi
     else
-        echo -n ' [not-git]'
+        if [[ $(pwd) == '/root' ]]; then
+            # may later quietly make a few dirs like wp-includes simple git
+            # repos for the sake of tracking and undoing changes while debugging.
+            # a little annoying disable for now
+            # echo -n ' [not-git]'
+        fi
     fi
 }
 
