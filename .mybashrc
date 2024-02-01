@@ -3,7 +3,8 @@ alias run-crons="wp site list --path=/chroot/var/www --field=url | xargs -I URL 
 alias la='ll -A'
 
 # gets rid of crud in wp shell
-export XDEBUG_MODE=off
+# disables too much :(
+#export XDEBUG_MODE=off
 
 # use our own config, but it will inherit from the provided sandbox config
 export WP_CLI_CONFIG_PATH='/root/wp-cli-global.yml'
