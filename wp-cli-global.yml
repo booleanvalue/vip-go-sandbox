@@ -3,6 +3,6 @@ require:
   - /root/mine/vip-go-sandbox/scripts/wp-cli-require-url.php
   - /root/mine/wpcli-packages/option-cache-cli/option-cache-cli.php
   - /root/mine/wpcli-packages/misc-wp-cli/misc.php
-  - /root/mine/wpcli-packages/wp-private-commands.php
+  - /root/mine/vip-go-sandbox/scripts/wp-private-commands.php
 _:
   inherit: /chroot/var/www/config/wp-cli.yml
