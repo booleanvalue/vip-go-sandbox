@@ -23,12 +23,3 @@ if [ ! -d "misc-wp-cli" ]; then
 	git clone https://github.com/trepmal/misc-wp-cli.git
 fi
 popd > /dev/null
-
-# app.php is dropped in root because at the time of
-# transfer we don't know if mine/wpcli-packages exists yet
-if [ -f ~/wp-cli-app.php ]; then
-  mv ~/wp-cli-app.php $WP_CLI_PACKAGES_DIR'/priv/.'
-fi
-if [ -f ~/wp-cli-sandbox.php ]; then
-  mv ~/wp-cli-sandbox.php $WP_CLI_PACKAGES_DIR'/priv/.'
-fi
