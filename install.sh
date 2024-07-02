@@ -7,9 +7,18 @@
 yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/00-sandbox-helper.php /var/www/wp-content/mu-plugins/.
 
 if [ ! -f /var/www/wp-content/mu-plugins/http-concat/concat-utils.php.original ]; then
-
   mv /var/www/wp-content/mu-plugins/http-concat/concat-utils.php /var/www/wp-content/mu-plugins/http-concat/concat-utils.php.original
   yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/concat-utils.php /var/www/wp-content/mu-plugins/http-concat/concat-utils.php
+fi
+
+if [ ! -f /var/www/wp-content/mu-plugins/http-concat/cssconcat.php.original ]; then
+  mv /var/www/wp-content/mu-plugins/http-concat/cssconcat.php /var/www/wp-content/mu-plugins/http-concat/cssconcat.php.original
+  yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/cssconcat.php /var/www/wp-content/mu-plugins/http-concat/cssconcat.php
+fi
+
+if [ ! -f /var/www/wp-content/mu-plugins/http-concat/jsconcat.php.original ]; then
+  mv /var/www/wp-content/mu-plugins/http-concat/jsconcat.php /var/www/wp-content/mu-plugins/http-concat/jsconcat.php.original
+  yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/jsconcat.php /var/www/wp-content/mu-plugins/http-concat/jsconcat.php
 fi
 
 if [ ! -d /var/www/wp-content/mu-plugins/sandbox-wp-debugger/ ]; then
