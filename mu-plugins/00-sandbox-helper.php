@@ -11,7 +11,7 @@ ini_set( 'error_log', '/tmp/php-errors' );
 
 // fancy var_dump
 if ( ! function_exists( 'vip_dump' ) ) {
-    function vip_dump( $var = null ) {
+    function vip_dump( ...$var = null ) {
         $old_setting = ini_get( 'html_errors' );
         ini_set( 'html_errors', false );
         ini_set( 'xdebug.cli_color', 2 );
@@ -34,6 +34,14 @@ add_filter( 'wp_php_error_message', function( $m, $e ) {
     $m .= '</dl>';
     return $m; 
 }, 10, 2 );
+
+add_filter( 'x_redirect_by', function( $x_redirect_by, $status, $location ) {
+	return sprintf(
+		'%s; Debug Backtrace: %s',
+		$x_redirect_by,
+		wp_debug_backtrace_summary()
+	);
+}, 10, 3 );
 
 if ( file_exists( __DIR__ . '/sandbox-wp-debugger/sandbox-wp-debugger.php' ) ) {
     require_once __DIR__ . '/sandbox-wp-debugger/sandbox-wp-debugger.php';
