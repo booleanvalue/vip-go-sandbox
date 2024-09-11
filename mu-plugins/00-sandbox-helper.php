@@ -12,21 +12,25 @@ ini_set( 'error_log', '/tmp/php-errors' );
 // fancy var_dump
 if ( ! function_exists( 'vip_dump' ) ) {
 	function vip_dump( ...$var ) {
-		$old_setting = ini_get( 'html_errors' );
-		ini_set( 'html_errors', false );
-		ini_set( 'xdebug.cli_color', 2 );
-		ob_start();
-		$trace = debug_backtrace();
-		$real_file = $trace[0]['file'];
-		foreach ( $var as $v ) {
-			var_dump( $v );
+		if ( 0 === ob_get_level() ) {
+			$old_setting = ini_get( 'html_errors' );
+			ini_set( 'html_errors', false );
+			ini_set( 'xdebug.cli_color', 2 );
+			ob_start();
+			$trace = debug_backtrace();
+			$real_file = $trace[0]['file'];
+			foreach ( $var as $v ) {
+				var_dump( $v );
+			}
+			$out1 = ob_get_contents();
+			$out1 = str_replace( __FILE__, $real_file, $out1 );
+			ob_end_clean();
+			error_log( $out1 );
+			ini_set( 'xdebug.cli_color', 1 );
+			ini_set( 'html_errors', $old_setting );
+		} else {
+			error_log( var_export( $var_to_dump, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log, WordPress.PHP.DevelopmentFunctions.error_log_var_export
 		}
-		$out1 = ob_get_contents();
-		$out1 = str_replace( __FILE__, $real_file, $out1 );
-		ob_end_clean();
-		error_log( $out1 );
-		ini_set( 'xdebug.cli_color', 1 );
-		ini_set( 'html_errors', $old_setting );
 	}
 }
 
