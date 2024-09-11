@@ -11,12 +11,14 @@ ini_set( 'error_log', '/tmp/php-errors' );
 
 // fancy var_dump
 if ( ! function_exists( 'vip_dump' ) ) {
-    function vip_dump( ...$var = null ) {
+    function vip_dump( ...$var ) {
         $old_setting = ini_get( 'html_errors' );
         ini_set( 'html_errors', false );
         ini_set( 'xdebug.cli_color', 2 );
         ob_start();
-        var_dump( $var );
+        foreach ( $var as $v ) {
+		var_dump( v );
+	}
         $out1 = ob_get_contents();
         ob_end_clean();
         error_log( $out1 );
