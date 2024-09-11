@@ -16,10 +16,13 @@ if ( ! function_exists( 'vip_dump' ) ) {
 		ini_set( 'html_errors', false );
 		ini_set( 'xdebug.cli_color', 2 );
 		ob_start();
+		$trace = debug_backtrace();
+		$real_file = $trace[0]['file'];
 		foreach ( $var as $v ) {
 			var_dump( $v );
 		}
 		$out1 = ob_get_contents();
+		$out1 = str_replace( __FILE__, $real_file, $out1 );
 		ob_end_clean();
 		error_log( $out1 );
 		ini_set( 'xdebug.cli_color', 1 );
