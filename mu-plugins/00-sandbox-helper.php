@@ -29,7 +29,7 @@ if ( ! function_exists( 'vip_dump' ) ) {
 			ini_set( 'xdebug.cli_color', 1 );
 			ini_set( 'html_errors', $old_setting );
 		} else {
-			error_log( var_export( $var_to_dump, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log, WordPress.PHP.DevelopmentFunctions.error_log_var_export
+			error_log( var_export( $var, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log, WordPress.PHP.DevelopmentFunctions.error_log_var_export
 		}
 	}
 }
