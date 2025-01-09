@@ -14,7 +14,7 @@ prompt_command () {
     # consider changing to use the <id>-data.json file which won't fail due to random customer code
     local ENV=$(php -r "include '/var/www/config/wp-config.php'; echo VIP_GO_APP_ENVIRONMENT;" 2> /dev/null)
     local  MS=$(php -r "include '/var/www/config/wp-config.php'; echo MULTISITE ? '(ms) ' : '(ss) ';" 2> /dev/null)
-    local URL=$(wp option get home 2> /dev/null)
+    local URL=$(wp option get home 2> /dev/null | xargs) # xargs hack to trim whitespace
 	URL=${URL/#https:\/\//}
 	URL=${URL/#http:\/\//}
 
