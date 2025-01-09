@@ -14,7 +14,9 @@ prompt_command () {
     # consider changing to use the <id>-data.json file which won't fail due to random customer code
     local ENV=$(php -r "include '/var/www/config/wp-config.php'; echo VIP_GO_APP_ENVIRONMENT;" 2> /dev/null)
     local  MS=$(php -r "include '/var/www/config/wp-config.php'; echo MULTISITE ? '(ms) ' : '(ss) ';" 2> /dev/null)
-
+    local URL=$(wp option get home 2> /dev/null)
+	URL=${URL/#https:\/\//}
+	URL=${URL/#http:\/\//}
 
     # this is too slow to run in the prompt
     # local HOST=$(wp option get home | sed 's/^.*\/\///g')
@@ -69,10 +71,16 @@ prompt_command () {
     local CURDIR=$(pwdtail)
     local TITLEBAR='\[\e]2;${PWD}\a\]' # also preserves pwd in new tab
 
+	if [ $ENV == 'production' ]; then
+		color="${HWHITE/;/;${BGCYAN};}"
+	else
+		color="${BYELLOW/;/;${BGMAGENTA};}";
+	fi
+
     # export PS1="${TITLEBAR}${CYAN}[ ${BCYAN}\u${GREEN}@${BCYAN}${DEFAULT}\
-    export PS1="\n${TITLEBAR}${HWHITE/;/;${BGRED};}[S]${DEFAULT} ${CYAN}[${DEFAULT}${WHITE}${TIME}${CYAN}]\
+    export PS1="\n${TITLEBAR}${color}[S]${DEFAULT} ${CYAN}[${DEFAULT}${WHITE}${TIME}${CYAN}]\
 ${RED}$ERRPROMPT${WHITE}${DEFAULT}\
-${BLUE}${HOST}${DEFAULT} ${HWHITE/;/;${BGBLUE};}${ENV}${DEFAULT} ${YELLOW}${CURDIR}${DEFAULT}\
+${BLUE}${HOST}${DEFAULT} ${HYELLOW}${URL}${DEFAULT} ${HWHITE/;/;${BGBLUE};}${ENV}${DEFAULT} ${YELLOW}${CURDIR}${DEFAULT}\
 ${MAGENTA}${GITSTATUS}${DEFAULT}${MAGENTA}${DEFAULT} $ "
 
 }
@@ -115,4 +123,3 @@ in_git_repo() {
     fi
     return 1;
 }
-
