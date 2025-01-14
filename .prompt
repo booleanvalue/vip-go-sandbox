@@ -71,7 +71,7 @@ prompt_command () {
     local CURDIR=$(pwdtail)
     local TITLEBAR='\[\e]2;${PWD}\a\]' # also preserves pwd in new tab
 
-	if [ $ENV == 'production' ]; then
+	if [[ $ENV == 'production' ]]; then
 		color="${HWHITE/;/;${BGCYAN};}"
 	else
 		color="${BYELLOW/;/;${BGMAGENTA};}";
