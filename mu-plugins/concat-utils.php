@@ -42,6 +42,13 @@ function reverse_wpvip_filter_sandbox_plugins_url( $url ) {
 # *exception is marked with '<----'
 
 class WPCOM_Concat_Utils {
+	// Maximum group size, anything over that will be split into multiple groups
+	protected static int $concat_max = 150;
+
+	public static function get_concat_max() {
+		return self::$concat_max;
+	}
+
     public static function is_internal_url( $test_url, $site_url ) { 
 
         $test_url = reverse_wpvip_filter_sandbox_plugins_url( $test_url ); /** <---------------------------- */
