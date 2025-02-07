@@ -38,7 +38,7 @@ if ( ! function_exists( 'vip_dump' ) ) {
 add_filter( 'wp_php_error_message', function( $m, $e ) {
 	$m .= '<dl>';
 	foreach ( $e as $k => $v ) {
-		$m .= "<dt>$k</dt><dd>$v</dd>";
+		$m .= "<dt>$k</dt><dd><pre style='text-wrap:wrap'>$v</pre></dd>";
 	}
 	$m .= '</dl>';
 	return $m;
