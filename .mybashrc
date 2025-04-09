@@ -9,6 +9,8 @@ alias wp='XDEBUG_MODE=off wp'
 
 # use our own config, but it will inherit from the provided sandbox config
 export WP_CLI_CONFIG_PATH='/root/wp-cli-global.yml'
+export WP_CLI_DISABLE_AUTO_CHECK_UPDATE=true
+export WP_CLI_SUPPRESS_GLOBAL_PARAMS=true
 
 # ideally wanted to blend in with proper packages, but probably not necessary at this point
 export WP_CLI_PACKAGES_DIR='/root/mine/wpcli-packages'
