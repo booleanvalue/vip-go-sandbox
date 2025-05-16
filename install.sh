@@ -21,12 +21,12 @@ if [ ! -f /var/www/wp-content/mu-plugins/http-concat/jsconcat.php.original ]; th
   yes | cp -rf ~/mine/vip-go-sandbox/mu-plugins/jsconcat.php /var/www/wp-content/mu-plugins/http-concat/jsconcat.php
 fi
 
-if [ ! -d /var/www/wp-content/mu-plugins/sandbox-wp-debugger/ ]; then
-  git clone git@github.com:Automattic/sandbox-wp-debugger.git /var/www/wp-content/mu-plugins/sandbox-wp-debugger
-  pushd /var/www/wp-content/mu-plugins/sandbox-wp-debugger > /dev/null
-  git checkout emrikol/custom-sandbox-wp-debugger
-  popd > /dev/null
-fi
+#if [ ! -d /var/www/wp-content/mu-plugins/sandbox-wp-debugger/ ]; then
+#  git clone git@github.com:Automattic/sandbox-wp-debugger.git /var/www/wp-content/mu-plugins/sandbox-wp-debugger
+#  pushd /var/www/wp-content/mu-plugins/sandbox-wp-debugger > /dev/null
+#  git checkout emrikol/custom-sandbox-wp-debugger
+#  popd > /dev/null
+#fi
 
 # ~/.go-sandbox.json is a file on your local
 #
