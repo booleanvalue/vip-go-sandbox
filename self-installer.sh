@@ -12,7 +12,7 @@ fi
 
 # clone vip-go-sandbox into ~/mine (if it doesn't exist)
 if [[ ! -d ~/mine/vip-go-sandbox ]]; then
-  git clone git@github.com:trepmal/vip-go-sandbox.git mine/vip-go-sandbox
+  git clone https://github.com/trepmal/vip-go-sandbox.git mine/vip-go-sandbox
 fi
 
 # go into repo, run install, leave
