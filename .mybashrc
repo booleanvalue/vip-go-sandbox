@@ -19,9 +19,9 @@ mkdir -p $WP_CLI_PACKAGES_DIR
 pushd $WP_CLI_PACKAGES_DIR > /dev/null
 # we do this here instead of install.sh to make use of the env
 if [ ! -d "option-cache-cli" ]; then
-	git clone https://github.com/trepmal/option-cache-cli.git
+	git clone https://github.com/booleanvalue/option-cache-cli.git
 fi
 if [ ! -d "misc-wp-cli" ]; then
-	git clone https://github.com/trepmal/misc-wp-cli.git
+	git clone https://github.com/booleanvalue/misc-wp-cli.git
 fi
 popd > /dev/null
